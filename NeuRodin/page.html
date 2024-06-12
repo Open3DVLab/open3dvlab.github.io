@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NeuRodin: A Two-stage Framework for High-Fidelity Neural Surface Reconstruction</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/css2" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  
+  <script src="js/event.js"></script>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1><b>NeuRodin</b>: A Two-stage Framework for <br> High-Fidelity Neural Surface Reconstruction</h1>
+            <!-- <h4 style="color:#5a6268;">In submission</h4> -->
+            <hr>
+            <h5> 
+              <a target="_blank">Yifan Wang</a><sup>1</sup>, 
+              <a target="_blank">Di Huang</a><sup>1</sup>, 
+              <a href="https://ywcmaike.github.io/" target="_blank">Weicai Ye</a><sup>1,2</sup>,
+              <a target="_blank">Guofeng Zhang</a><sup>2</sup>,
+              <a target="_blank">Wanli Ouyang</a><sup>1</sup>,
+              <a target="_blank">Tong He</a><sup>1</sup><br />
+            </h5>
+            <p>
+                <sup>1</sup>Shanghai AI Laboratory &nbsp;&nbsp;
+                <sup>2</sup>Zhejiang University &nbsp;&nbsp; 
+            </p>
+
+
+
+
+            <div class="row justify-content-center">
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                  <i class="fa fa-file"></i> Arxiv</a> </p>
+            </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                    <i class="fa fa-file"></i>Paper</a> </p>
+              </div>
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                  <i class="fa fa-github-alt"></i> Code</a> </p>
+              </div>
+              <!-- <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://ghy0324.github.io/project_page_assets/sam_graph/supp.pdf" role="button">
+                    <i class="fa fa-file"></i> Supplementary </a> </p>
+              </div> -->
+
+            <br><br>
+
+            <div class="container">
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <img style="width: 90%;" src="src/Teaser.png"/>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+              <p class="text-left"> Signed Distance Function (SDF)-based volume rendering has demonstrated significant capabilities in surface reconstruction. Although promising, SDF-based methods often fail to capture detailed geometric structures, resulting in visible defects. By comparing SDF-based volume rendering to density-based volume rendering, we identify two main factors within the SDF-based approach that degrade surface quality: <i>SDF-to-density representation</i> and <i>geometric regularization</i>. These factors introduce challenges that hinder the optimization of the SDF field. To address these issues, we introduce <b>NeuRodin</b>, a novel two-stage neural surface reconstruction framework that not only achieves high-fidelity surface reconstruction but also retains the flexible optimization characteristics of density-based methods.
+                <b>NeuRodin</b> incorporates innovative strategies that facilitate transformation of arbitrary topologies and reduce artifacts associated with density bias. Extensive evaluations on the Tanks and Temples and ScanNet++ datasets demonstrate the superiority of <b>NeuRodin</b>, showing strong reconstruction capabilities for both indoor and outdoor environments using solely posed RGB captures. All codes and models will be made public upon acceptance. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <div class="row">
+    <div class="container">
+        <div class="col-12 text-center">
+            <h3>Results on the Tanks and Temples Training Set</h3><hr style="margin-top:0px">
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <video id="v0" width="100%" autoplay loop muted controls>
+                    <source src="src/barn.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="col-6">
+                <video id="v1" width="100%" autoplay loop muted controls>
+                    <source src="src/cater.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <div class="col-md-8 offset-md-2 text-center">
+        </div>
+    </div>
+</div>
+
+
+  <br />
+  <br/>
+
+  <br>
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="column is-full-width">
+          <div class="tabs">
+            <div class="tab" data-tab-for="s_exa1" onclick="showExamples2('s_exa1', this)">Barn</div>
+            <div class="tab" data-tab-for="s_exa2" onclick="showExamples2('s_exa2', this)">Meetingroom</div>
+          </div>
+
+          <div id="s_exa1" class="bal-container-small exa">
+            <div class="bal-after">
+              <img src="src/barn-ours.png">
+              <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                Ours
+              </div>
+            </div>
+            <div class="bal-before" style="width:1.910828025477707%;">
+              <div class="bal-before-inset" style="width: 628px;">
+              <img src="src/barn-neuralangelo.png">
+                <div class="bal-beforePosition beforeLabel">
+                  Neuralangelo
+                </div>
+              </div>
+            </div>
+            <div class="bal-handle" style="left:1.910828025477707%;">
+              <span class=" handle-left-arrow"></span>
+              <span class="handle-right-arrow"></span>
+            </div>
+          </div>
+
+          <div id="s_exa2" class="bal-container-small exa">
+            <div class="bal-after">
+              <img src="src/meetingroom-ours00.png">
+              <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                Ours
+              </div>
+            </div>
+            <div class="bal-before" style="width:1.910828025477707%;">
+              <div class="bal-before-inset" style="width: 628px;">
+              <img src="src/meetingroom-neuralangelo01.png">
+                <div class="bal-beforePosition beforeLabel">
+                    Neuralangelo
+                </div>
+              </div>
+            </div>
+            <div class="bal-handle" style="left:1.910828025477707%;">
+              <span class=" handle-left-arrow"></span>
+              <span class="handle-right-arrow"></span>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- comparison -->
+    <br/>
+    <br/>
+
+  <div class="row">
+    <div class="container">
+        <div class="col-12 text-center">
+            <h3>Results on the Tanks and Temples Advance Set</h3><hr style="margin-top:0px">
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <video id="v0" width="100%" autoplay loop muted controls>
+                    <source src="src/barn.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="col-6">
+                <video id="v1" width="100%" autoplay loop muted controls>
+                    <source src="src/museum.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <div class="col-md-8 offset-md-2 text-center">
+        </div>
+    </div>
+</div>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="column is-full-width">
+              <div class="tabs">
+                <div class="tab" data-tab-for="example1" onclick="showExamples('example1', this)">Ballroom</div>
+                <div class="tab" data-tab-for="example2" onclick="showExamples('example2', this)">Museum</div>
+              </div>
+  
+              <div id="example1" class="bal-container-small example">
+                <div class="bal-after">
+                  <img src="src/ballroom-ours01.png">
+                  <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                    Ours
+                  </div>
+                </div>
+                <div class="bal-before" style="width:1.910828025477707%;">
+                  <div class="bal-before-inset" style="width: 628px;">
+                  <img src="src/ballroom-bakedangelo.png">
+                    <div class="bal-beforePosition beforeLabel">
+                      Neuralangelo
+                    </div>
+                  </div>
+                </div>
+                <div class="bal-handle" style="left:1.910828025477707%;">
+                  <span class=" handle-left-arrow"></span>
+                  <span class="handle-right-arrow"></span>
+                </div>
+              </div>
+  
+              <div id="example2" class="bal-container-small example">
+                <div class="bal-after">
+                  <img src="src/museum-ours00.png">
+                  <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                    Ours
+                  </div>
+                </div>
+                <div class="bal-before" style="width:1.910828025477707%;">
+                  <div class="bal-before-inset" style="width: 628px;">
+                  <img src="src/museum-bakedangelo02.png">
+                    <div class="bal-beforePosition beforeLabel">
+                      Neuralangelo
+                    </div>
+                  </div>
+                </div>
+                <div class="bal-handle" style="left:1.910828025477707%;">
+                  <span class=" handle-left-arrow"></span>
+                  <span class="handle-right-arrow"></span>
+                </div>
+              </div>
+  
+              
+          </div>
+        </div>
+      </div>
+
+
+      <br/>
+      <br/>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h3>Results on the ScanNet++</h3>
+              <hr style="margin-top:0px">
+              <div class="column is-full-width">
+                <div class="tabs">
+                  <div class="tab" data-tab-for="example3" onclick="showExamples3('exam1', this)">0e75f3c4d9</div>
+                  <div class="tab" data-tab-for="example4" onclick="showExamples3('exam2', this)">355e5e32db</div>
+                </div>
+    
+                <div id="exam1" class="bal-container-small exam">
+                  <div class="bal-after">
+                    <img src="src/0e-ours02.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours
+                    </div>
+                  </div>
+                  <div class="bal-before" style="width:1.910828025477707%;">
+                    <div class="bal-before-inset" style="width: 628px;">
+                    <img src="src/0e-bakedangelo01.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        Neuralangelo
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bal-handle" style="left:1.910828025477707%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+                </div>
+    
+                <div id="exam2" class="bal-container-small exam">
+                  <div class="bal-after">
+                    <img src="src/355-ours00.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours
+                    </div>
+                  </div>
+                  <div class="bal-before" style="width:1.910828025477707%;">
+                    <div class="bal-before-inset" style="width: 628px;">
+                    <img src="src/355-bakedangelo04.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        Neuralangelo
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bal-handle" style="left:1.910828025477707%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+                </div>
+    
+                
+            </div>
+          </div>
+        </div>
+  
+
+        <br/>
+      <br/>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h3>More results</h3>
+              <hr style="margin-top:0px">
+              
+            <div class="container">
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <img style="width: 100%;" src="src/more.png"/>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+    
+                
+            </div>
+          </div>
+        </div>
+  
+
+  <!-- citing -->
+  <!-- <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+            <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{chen2024pgsr,
+  title={PGSR: Planar-based Gaussian Splatting for Efficient and High-Fidelity Surface Reconstruction},
+  author={Danpeng Chen and Hai Li and Weicai Ye and Yifan Wang and Weijian Xie and Shangjin Zhai and Nan Wang and Haomin Liu and Hujun Bao and Guofeng Zhang},
+    booktitle={arxiv preprint arxiv:2406.06521}, 
+    year={2024}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div> -->
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
