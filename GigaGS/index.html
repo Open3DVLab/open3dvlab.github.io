@@ -1,0 +1,430 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GigaGS: Scaling up Planar-Based 3D Gaussians for Large Scene Surface Reconstruction">
+  <meta name="keywords" content="diffusion, 3dgs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GigaGS: Scaling up Planar-Based 3D Gaussians for Large Scene Surface Reconstruction</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/style.css">
+
+  
+  <!-- <link rel="stylesheet" href="./static/css/font-awesome.min.css"> -->
+  <!-- <link rel="stylesheet" href="./static/css/codemirror.min.css"> -->
+  <!-- <link rel="stylesheet" href="./static/css/app.css"> -->
+
+  <link rel="icon" href="./sources/images/gigags_logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- <script src="./static/js/jquery.min.js"></script> -->
+  <!-- <script src="./static/js/bootstrap.min.js"></script> -->
+  <!-- <script src="./static/js/codemirror.min.js"></script> -->
+  <!-- <script src="./static/js/clipboard.min.js"></script> -->
+  <script src="./static/js/video_comparison.js"></script>
+  <script src="./static/js/app.js"></script>
+
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  
+  <script src="./static/js/event_handler.js"></script>
+  <script src="./static/js/dics.original.js"></script>
+
+  <style>
+    .video-margin {
+      margin-bottom: 20px; 
+    }
+  </style>
+  <style>
+  .reduce-space {
+    margin-bottom: -100px;  
+  }
+</style>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="reduce-space">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- <h1 class="title is-1 publication-title">
+            <span class='main-title'>GVGEN:</span> <span class="sub-title"> Text-to-3D Generation with Volumetric Representation</span>
+          </h1> -->
+
+          <h1 class="title is-1 publication-title jumbotron-heading">
+            <span class='main-title' id="name">GigaGS</span>: Scaling up Planar-Based 3D Gaussians for Large Scene Surface Reconstruction
+          </h1>
+          
+          <!-- <div id="venue"> -->
+            <!-- European Conference on Computer Vision (<b>ECCV</b>), 2024<br> -->
+            <!-- <span id="highlight">HIGHLIGHT</span> -->
+          <!-- </div> -->
+
+          <div style="text-align: center;">
+            <img src="./sources/images/gigags_logo.png" alt="pipeline" width="20%" >
+          </div>
+
+          <br>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/SOTAMak1r">Junyi Chen*</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ywcmaike.github.io/">Weicai Ye*†</a><sup>1,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Yifan Wang</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Danpeng Chen</a><sup>1,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Di Huang</a><sup>1</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Wanli Ouyang</a><sup>1</sup>,
+            </span>
+            </span>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Guofeng Zhang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Yu Qiao</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://open3dvlab.github.io/GigaGS/">Tong He†</a><sup>1</sup>
+            </span>
+          </div>
+          <br>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai AI Lab,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University,</span>
+            <span class="author-block"><sup>3</sup>Zhejiang University,</span>
+            <br>
+            <span class="author-block"><sup>*</sup>Equal Contributions</span>
+            <span class="author-block"><sup>†</sup>Corresponding Authors</span>
+            <br>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.12957"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- PDF Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="index.html"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Paper</span>-->
+<!--                </a>-->
+<!--              </span>-->
+            <!--  
+            <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            -->
+  
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+
+              <span class="link-block">
+                <a href="https://github.com/SOTAMak1r/GVGEN"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Dataset Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="rows is-centered">
+        <figure>
+          <video id="r10k" autoplay muted loop playsinline width="100%">
+            <source src="sources/videos/gigags_teaser.mp4" type="video/mp4">
+          </video>
+          <!-- <figcaption class="tagline">
+            GVGEN possesses a fast generation speed <b>(~7 seconds)</b>, effectively striking a balance between quality and efficiency.
+          </figcaption> -->
+        </figure>
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          3D Gaussian Splatting (3DGS) has shown promising performance in novel view synthesis. 
+          Previous methods adapt it to obtaining surfaces of either individual 3D objects or within limited scenes. 
+          In this paper, we make the first attempt to tackle the challenging task of large-scale scene surface reconstruction. 
+          This task is particularly difficult due to the high GPU memory consumption, different levels of details for geometric representation, and noticeable inconsistencies in appearance. 
+          To this end, we propose <b>GigaGS</b>, the first work for high-quality surface reconstruction for large-scale scenes using 3DGS.
+          <b>GigaGS</b> first applies a partitioning strategy based on the mutual visibility of spatial regions, which effectively grouping cameras for parallel processing. 
+          To enhance the quality of the surface, we also propose novel multi-view photometric and geometric consistency constraints based on Level-of-Detail representation. 
+          In doing so, our method can reconstruct detailed surface structures. Comprehensive experiments are conducted on various datasets. 
+          The consistent improvement demonstrates the superiority of <b>GigaGS</b>. 
+        </div>
+        <br> 
+
+        <div style="text-align: center;">
+          <img src="./sources/images/pipeline.png" alt="pipeline" width="90%" >
+        </div>
+        <br> 
+        <p><strong>Fig. 1: Overview of GigaGS.</strong> 
+          We propose GigaGS, the first work specifically designed for large scene surface reconstruction. 
+          Our approach ensures high rendering quality while also extracting high-quality meshes.
+    </div>
+    <!--/ Abstract. -->
+  </div>
+  
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Comparison</h2>      
+    </div>
+
+    <div class="content has-text-justified">
+      Here, we present the qualitative comparison results of Ground Truth, GigaGS (Ours), SuGaR and Neuralangelo.
+    </div>
+
+    <br>
+        
+
+        <div class="row">
+        <div class="container is-max-desktop">
+            <!-- <div class="col-md-8 col-md-offset-2"> -->
+            <!-- <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2> -->
+            <!-- Results. -->
+            <!-- <div class="columns is-centered "> -->
+            <!-- <div class="column is-full-width"> -->
+                <!-- <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2> -->
+        
+                <!-- <h3 class="title is-4">Comparison</h3> -->
+                <!-- <h3>
+                    Comparison
+                </h3>
+                
+                <div class="content has-text-justified">
+                  <p>
+                    Here, we present the qualitative comparison results of 3DGS*, Pixel-GS (Ours), and Ground Truth.
+                  </p>
+                </div> -->
+        
+                <div class="container">
+                    <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEvent(0)">sci-art</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEvent(1)">residence</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEvent(2)">campus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  active" onclick="objectSceneEvent(3)">rubble</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEvent(4)">building</a>
+                        </li>
+                    </ul>
+                    <div class="b-dics" style="width: 2600px; font-weight: 800;">
+                        <img src="resources/render/rubble/gt.png" alt="GT">
+                        <img src="resources/render/rubble/ours.png" alt="Ours">
+                        <img src="resources/render/rubble/sugar.png" alt="SuGaR">
+                        <!-- <img src="resources/render/rubble/neus.png" alt="Neus"> -->
+                        <img src="resources/render/rubble/neuralangelo.png" alt="Neuralangelo">
+                    </div>
+                </div>               
+            </div>
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="columns is-centered has-text-centered">
+          <div class="column content">
+            <video id="matting-video" autoplay muted loop playsinline width="100%">
+              <source src="sources/videos/results.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <br>
+
+
+        <div class="row">
+        <div class="container is-max-desktop">
+            <!-- <div class="col-md-8 col-md-offset-2"> -->
+            <!-- <div class="columns is-centered ">
+            <div class="column is-full-width"> -->
+                <div class="container">
+                    <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon-normal">
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventnormal(0)">sci-art</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventnormal(1)">residence</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventnormal(2)">campus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" onclick="objectSceneEventnormal(3)">rubble</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventnormal(4)">building</a>
+                        </li>
+                    </ul>
+                    <div class="b-dics" style="width: 2600px; font-weight: 800;">
+                        <!-- <img src="resources/normal/building/gt.png" alt="GT"> -->
+                        <img src="resources/normal/building/ours.png" alt="Ours">
+                        <img src="resources/normal/building/sugar.png" alt="SuGaR">
+                        <img src="resources/normal/building/neuralangelo.png" alt="Neuralangelo">
+                    </div>
+                </div>       
+            <!-- </div> -->
+            </div>        
+        </div>
+
+
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{he2024gvgentextto3dgenerationvolumetric,
+  title={GVGEN: Text-to-3D Generation with Volumetric Representation}, 
+  author={Xianglong He and Junyi Chen and Sida Peng and Di Huang and Yangguang Li and Xiaoshui Huang and Chun Yuan and Wanli Ouyang and Tong He},
+  year={2024},
+  eprint={2403.12957},
+  archivePrefix={arXiv},å
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2403.12957}, 
+}</code></pre>
+
+  </div>
+</section>
+
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" >
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/SOTAMak1r/GVGEN">
+            GVGEN
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <!-- <div class="column is-8"> -->
+        <div class="content has-text-centered">
+          <p>
+            Website source based on <a href="https://github.com/nerfies/nerfies.github.io">this source code</a>. We also incorporated design elements from <a href="https://diffusion-with-forward-models.github.io/">DFM</a>, <a href="https://research.nvidia.com/labs/dir/magic3d/">Magic3D</a> and <a href="https://pixelgs.github.io/">Pixel-GS</a>. 
+          </p>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
