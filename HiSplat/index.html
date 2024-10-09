@@ -1,0 +1,336 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HiSplat: Hierarchical 3D Gaussian Splatting for Generalizable Sparse-View Reconstruction">
+  <meta name="keywords" content="3dgs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HiSplat: Hierarchical 3D Gaussian Splatting for Generalizable Sparse-View Reconstruction</title>
+
+<!--  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"-->
+<!--        rel="stylesheet">-->
+
+  <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/style.css">
+
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- <script src="./static/js/jquery.min.js"></script> -->
+  <!-- <script src="./static/js/bootstrap.min.js"></script> -->
+  <!-- <script src="./static/js/codemirror.min.js"></script> -->
+  <!-- <script src="./static/js/clipboard.min.js"></script> -->
+  <script src="./static/js/video_comparison.js"></script>
+  <script src="./static/js/app.js"></script>
+
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  
+  <script src="./static/js/event_handler.js"></script>
+  <script src="./static/js/dics.original.js"></script>
+
+  <style>
+    .video-margin {
+      margin-bottom: 20px; 
+    }
+  </style>
+  <style>
+  .reduce-space {
+    margin-bottom: -100px;  
+  }
+</style>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="reduce-space">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title jumbotron-heading">
+              HiSplat: Hierarchical 3D Gaussian Splatting for Generalizable Sparse-View Reconstruction
+          </h1>
+
+
+
+          <br>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Shengji Tang<sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              Weicai Ye*<sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              Peng Ye*<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Weihao Lin<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Yang Zhou<sup>1,2</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              Tao Chen<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Wanli Ouyang<sup>2</sup>,
+            </span>
+          </div>
+          <br>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Fudan University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai AI Lab,</span>
+            <span class="author-block"><sup>3</sup>State Key Lab of CAD & CG, Zhejiang University,</span>
+            <br>
+            <span class="author-block"><sup>*</sup>Corresponding Authors</span>
+            <br>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper(Coming Soon)</span>
+                </a>
+              </span>
+
+              <!-- PDF Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="index.html"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Paper</span>-->
+<!--                </a>-->
+<!--              </span>-->
+            <!--
+            <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            -->
+
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+
+              <span class="link-block">
+                <a href="https://github.com/Open3DVLab/HiSplat"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Dataset Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!--/ Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="rows is-centered">
+        <figure>
+          <video id="r10k" autoplay muted loop playsinline width="100%">
+            <source src="sources/videos/compare_video.mp4" type="video/mp4">
+          </video>
+          <!-- <figcaption class="tagline">
+            GVGEN possesses a fast generation speed <b>(~7 seconds)</b>, effectively striking a balance between quality and efficiency.
+          </figcaption> -->
+        </figure>
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified">
+            Reconstructing 3D scenes from multiple viewpoints is a fundamental task in stereo vision. Recently, advances in generalizable 3D Gaussian Splatting have enabled high-quality novel view synthesis for unseen scenes from sparse input views by feed-forward predicting per-pixel Gaussian parameters without extra optimization. However, existing methods typically generate single-scale 3D Gaussians, which lack representation of both large-scale structure and texture details, resulting in mislocation and artefacts. In this paper, we propose a novel framework, <b> HiSplat </b>, which introduces a hierarchical manner in generalizable 3D Gaussian Splatting to construct hierarchical 3D Gaussians via a coarse-to-fine strategy. Specifically, HiSplat generates large coarse-grained Gaussians to capture large-scale structures, followed by fine-grained Gaussians to enhance delicate texture details. To promote inter-scale interactions, we propose an <b> Error Aware Module </b> for Gaussian compensation and a <b> Modulating Fusion Module </b> for Gaussian repair. Our method achieves joint optimization of hierarchical representations, allowing for novel view synthesis using only two-view reference images. Comprehensive experiments on various datasets demonstrate that HiSplat significantly enhances reconstruction quality and cross-dataset generalization compared to prior single-scale methods. The corresponding ablation study and analysis of different-scale 3D Gaussians reveal the mechanism behind the effectiveness.
+        </div>
+        <br>
+
+        <div style="text-align: center;">
+          <img src="./sources/images/first_fig.png" alt="pipeline" >
+        </div>
+        <br>
+        <p><strong>Fig. 1: Overview of HiSplat.</strong> HiSplat constructs hierarchical 3D Gaussians which can better represent large-scale structures (more accurate location and less crack), and texture details (fewer artefacts and less blurriness).
+            <br>
+            <br>
+            <br>
+        <div style="text-align: center;">
+            <img src="./sources/images/framework.png" alt="pipeline" >
+        </div>
+        <br>
+
+        <p><strong>Fig. 2: Framework of HiSplat.</strong> For simplicity, the situation with two input images is illustrated. HiSplat utilizes a shared U-Net backbone to extract different-scale features. With these features, three processing stages predict pixel-aligned Gaussian parameters with different scales, respectively. Error aware module and modulating fusion module perceive the errors in the early stages and guide the Gaussians in the later stages for compensation and repair. Finally, the fusing hierarchical Gaussians can reconstruct both the large-scale structure and texture details.
+    </div>
+    <!--/ Abstract. -->
+  </div>
+
+</section>
+
+
+<!--/ Qualitative comparison. -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Qualitative Comparison</h2>
+    </div>
+
+    <div class="content has-text-justified">
+      We provide a part of qualitative comparison results of PixelSplat, MVSplat, HiSplat (Ours) and Ground Truth.
+    </div>
+    <br>
+      <div class="row">
+        <div class="container is-max-desktop">
+                <div class="container">
+                    <ul class="nav nav-tabs nav-fill nav-justified" id="compare_dtu">
+                        <li class="nav-item">
+                            <a class="nav-link active" onclick="objectSceneEventDTU(0)">DTU Scene 01</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventDTU(1)">DTU Scene 02</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventDTU(2)">DTU Scene 03</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="objectSceneEventDTU(3)">DTU Scene 04</a>
+                        </li>
+                    </ul>
+                    <div class="b-dics" style="width: 2600px; font-weight: 800;">
+                        <img src="resources/compare_images/dtu/scene01/pixel.png" alt="PixelSplat">
+                        <img src="resources/compare_images/dtu/scene01/mvs.png" alt="MVSplat">
+                        <img src="resources/compare_images/dtu/scene01/ours.png" alt="Ours">
+                        <img src="resources/compare_images/dtu/scene01/gt.png" alt="GT">
+                    </div>
+                </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+          <div class="container is-max-desktop">
+              <div class="container">
+                  <ul class="nav nav-tabs nav-fill nav-justified" id="compare_re10k">
+                      <li class="nav-item">
+                          <a class="nav-link active" onclick="objectSceneEventRe10k(0)">RealEstate10K Scene 01</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" onclick="objectSceneEventRe10k(1)">RealEstate10K Scene 02</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" onclick="objectSceneEventRe10k(2)">RealEstate10K Scene 03</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" onclick="objectSceneEventRe10k(3)">RealEstate10K Scene 04</a>
+                      </li>
+                  </ul>
+                  <div class="b-dics" style="width: 2600px; font-weight: 800;">
+                      <img src="resources/compare_images/re10k/scene01/pixel.png" alt="PixelSplat">
+                      <img src="resources/compare_images/re10k/scene01/mvs.png" alt="MVSplat">
+                      <img src="resources/compare_images/re10k/scene01/ours.png" alt="Ours">
+                      <img src="resources/compare_images/re10k/scene01/gt.png" alt="GT">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!--/ Quantitative result. -->
+<section class="section">
+    <div class="container is-max-desktop">
+
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-3">Quantitative Results</h2>
+        </div>
+
+        <div class="content has-text-justified">
+            We provide a part of qualitative comparison results of PixelSplat, MVSplat, HiSplat (Ours) and Ground Truth.
+        </div>
+
+        <div style="text-align: center;">
+            <img src="./sources/images/main_result.png" >
+        </div>
+        <br>
+        <p><strong>Tab. 1: Evaluation on RealEstate10K and ACID.</strong> Compared with the previous NeRF-based and generalizable Gaussian-Splatting-based method, HiSplat can consistently obtain higher rendering quality of unseen views.
+            <br>
+            <br>
+            <br>
+        <div style="text-align: center;">
+            <img src="./sources/images/cross_result.png" >
+        </div>
+        <br>
+        <p><strong>Tab. 2: Evaluation on cross-dataset generalization.</strong> We train models on RealEstate10K, and test them on object-centric dataset DTU, outdoor dataset ACID, and indoor dataset Replica in a zero-shot setting. Compared with previous methods, HiSplat can better handle various scenes with different distributions and scales.
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <!-- <div class="column is-8"> -->
+        <div class="content has-text-centered">
+          <p>
+            Website source based on <a href="https://github.com/nerfies/nerfies.github.io">this source code</a>. We also incorporated design elements from <a href="https://diffusion-with-forward-models.github.io/">DFM</a>, <a href="https://research.nvidia.com/labs/dir/magic3d/">Magic3D</a> and <a href="https://pixelgs.github.io/">Pixel-GS</a>.
+          </p>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
